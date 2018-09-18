@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+#Alternative would be a volume, which is a reference to the local file. When making changes no rebuild is necessary
+COPY . . 
+
+CMD ["npm","run","start"]
