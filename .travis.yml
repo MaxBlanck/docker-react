@@ -13,6 +13,7 @@ before_install:
 script:
   - docker run maxblanck/docker-react npm run test -- --coverage
 
+# Create new Elastic beanstalk Service in AWS with plattform docker selected 
 deploy: 
  provider: elasticbeanstalk
  region: "us-east-2"
