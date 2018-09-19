@@ -1,0 +1,14 @@
+# Every time we push code, travis clones the git files, builds the image and runs the test suite
+
+# We need super user permission
+sudo: required
+# Tell travis that we need docker
+services: 
+  - docker
+
+before_install:
+  - docker build -t maxblanck/docker-react -f Dockerfile.dev .
+
+# series of command which have to be executed. "-- --coverage" to make sure test automatically exits
+script:
+  - docker run maxblanck/docker-react npm run test -- --coverage
